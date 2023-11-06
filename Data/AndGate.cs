@@ -70,6 +70,5 @@ namespace Data
                 else return false;
             }
         }
-
     }
 }

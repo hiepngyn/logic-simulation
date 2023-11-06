@@ -10,7 +10,7 @@ namespace DataTests
     /// <summary>
     /// Testing class for OR gates.
     /// </summary>
-    public class OrGateTest
+    public class OrGateUnitTest
     {
         #region Default Value Test
 

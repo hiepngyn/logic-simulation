@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace Data
 {
     /// <summary>
-    /// Class representing an OR Gate object.
+    /// Class representing an NOR Gate object.
     /// </summary>
-    public class OrGate : INotifyPropertyChanged
+    public class NorGate : INotifyPropertyChanged
     {
         /// <summary>
         /// Name of the gate.
         /// </summary>
-        public string Name = "OR Gate";
+        public string Name = "NOR Gate";
 
         /// <summary>
         /// PropertyChangedHandler used whenever a property is needing to be updated.
@@ -28,7 +28,7 @@ namespace Data
         private bool _topInput = false;
 
         /// <summary>
-        /// Top input value of an OR gate.
+        /// Top input value of an NOR gate.
         /// </summary>
         public bool TopInput
         {
@@ -46,7 +46,7 @@ namespace Data
         private bool _bottomInput = false;
 
         /// <summary>
-        /// Bottom input value of an OR gate.
+        /// Bottom input value of an NOR gate.
         /// </summary>
         public bool BottomInput
         {
@@ -59,13 +59,13 @@ namespace Data
         }
 
         /// <summary>
-        /// Output value of an OR gate.
+        /// Output value of an NOR gate.
         /// </summary>
         public bool OutputValue
         {
             get
             {
-                if ((TopInput == true) || (BottomInput == true)) return true;
+                if ((TopInput == false) || (BottomInput == false)) return true;
                 else return false;
             }
         }
