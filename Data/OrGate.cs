@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +8,14 @@ using System.Threading.Tasks;
 namespace Data
 {
     /// <summary>
-    /// Class representing an AND Gate object.
+    /// Class representing an OR Gate object.
     /// </summary>
-    public class AndGate : INotifyPropertyChanged
+    public class OrGate : INotifyPropertyChanged
     {
         /// <summary>
         /// Name of the gate.
         /// </summary>
-        public string Name = "AND Gate";
+        public string Name = "OR Gate";
 
         /// <summary>
         /// PropertyChangedHandler used whenever a property is needing to be updated.
@@ -29,7 +28,7 @@ namespace Data
         private bool _topInput = false;
 
         /// <summary>
-        /// Top input value of an AND gate.
+        /// Top input value of an OR gate.
         /// </summary>
         public bool TopInput
         {
@@ -39,15 +38,15 @@ namespace Data
                 _topInput = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OutputValue)));
             }
-        }     
-        
+        }
+
         /// <summary>
         /// Private backing for BottomInput
         /// </summary>
         private bool _bottomInput = false;
 
         /// <summary>
-        /// Bottom input value of an AND gate.
+        /// Bottom input value of an OR gate.
         /// </summary>
         public bool BottomInput
         {
@@ -60,13 +59,13 @@ namespace Data
         }
 
         /// <summary>
-        /// Output value of an AND gate.
+        /// Output value of an OR gate.
         /// </summary>
         public bool OutputValue
         {
             get
             {
-                if ((TopInput == true) && (BottomInput == true)) return true;
+                if ((TopInput == true) || (BottomInput == true)) return true;
                 else return false;
             }
         }
