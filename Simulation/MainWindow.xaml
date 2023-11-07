@@ -1,0 +1,29 @@
+﻿<Window x:Class="Simulation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulation"
+        mc:Ignorable="d"
+        Title="Logic Simulation" Height="750" Width="1000">
+    <Grid>
+        <!-- Grid Defs -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Clickable area of the grid -->
+        <Canvas Name="MainCanvas" Background="White" MouseDown="MainCanvas_MouseDown" Grid.Row="0">
+            
+        </Canvas>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="AND Gate" Click="AndGateButton_Click"/>
+            <Button Content="NOT Gate"/>
+            <Button Content="OR Gate"/>
+            <Button Content="Power Supply" Click="PowerSupplyButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

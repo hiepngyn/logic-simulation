@@ -5,6 +5,7 @@ using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Data
 {
@@ -14,9 +15,25 @@ namespace Data
     public class AndGate : INotifyPropertyChanged
     {
         /// <summary>
+        /// Private backing for the name
+        /// </summary>
+        private string _name = "AND Gate";
+
+        /// <summary>
         /// Name of the gate.
         /// </summary>
-        public string Name = "AND Gate";
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+                }
+            }
+        }
 
         /// <summary>
         /// PropertyChangedHandler used whenever a property is needing to be updated.
@@ -37,6 +54,7 @@ namespace Data
             set
             {
                 _topInput = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TopInput)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OutputValue)));
             }
         }     
@@ -55,6 +73,7 @@ namespace Data
             set
             {
                 _bottomInput = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BottomInput)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OutputValue)));
             }
         }
