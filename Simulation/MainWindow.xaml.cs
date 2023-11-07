@@ -42,6 +42,10 @@ namespace Simulation
             AndGate,
             OrGate,
             NotGate,
+            NandGate,
+            NorGate,
+            XorGate,
+            XnorGate,
             PowerSupply
         }
 
@@ -59,20 +63,40 @@ namespace Simulation
                 Point clickPosition = e.GetPosition(MainCanvas);
 
                 // Create the gate control based on the selection
-                UserControl gateControl = null;
+                UserControl partControl = null;
                 switch (_currentSelection)
                 {
                     case SelectedPart.AndGate:
-                        gateControl = new AndGateControl();
+                        partControl = new AndGateControl();
+                        break;     
+                    case SelectedPart.OrGate:
+                        partControl = new OrGateControl();
+                        break;                    
+                    case SelectedPart.NotGate:
+                        partControl = new NotGateControl();
+                        break;                    
+                    case SelectedPart.NandGate:
+                        partControl = new NandGateControl();
+                        break;                    
+                    case SelectedPart.NorGate:
+                        partControl = new NorGateControl();
+                        break;                    
+                    case SelectedPart.XorGate:
+                        partControl = new XorGateControl();
+                        break;                    
+                    case SelectedPart.XnorGate:
+                        partControl = new XnorGateControl();
+                        break;                 
+                    case SelectedPart.PowerSupply:
+                        partControl = new PowerSupplyControl();
                         break;
-                        // Handle other gate types similarly
                 }
 
-                if (gateControl != null)
+                if (partControl != null)
                 {
-                    Canvas.SetLeft(gateControl, clickPosition.X);
-                    Canvas.SetTop(gateControl, clickPosition.Y);
-                    MainCanvas.Children.Add(gateControl);
+                    Canvas.SetLeft(partControl, clickPosition.X);
+                    Canvas.SetTop(partControl, clickPosition.Y);
+                    MainCanvas.Children.Add(partControl);
                 }
 
                 // Reset the selection
@@ -84,6 +108,36 @@ namespace Simulation
         private void AndGateButton_Click(object sender, RoutedEventArgs e)
         {
             _currentSelection = SelectedPart.AndGate;
+        }        
+        
+        private void OrGateButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.OrGate;
+        }        
+        
+        private void NotGateButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.NotGate;
+        }        
+        
+        private void NandGateButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.NandGate;
+        }        
+        
+        private void NorGateButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.NorGate;
+        }        
+        
+        private void XorGateButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.XorGate;
+        }        
+        
+        private void XnorGateButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.XnorGate;
         }
 
         private void PowerSupplyButton_Click(object sender, RoutedEventArgs e)

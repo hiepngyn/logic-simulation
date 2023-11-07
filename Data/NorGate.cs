@@ -65,7 +65,7 @@ namespace Data
         {
             get
             {
-                if ((TopInput == false) || (BottomInput == false)) return true;
+                if ((TopInput == false) && (BottomInput == false)) return true;
                 else return false;
             }
         }
