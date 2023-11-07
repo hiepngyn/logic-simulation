@@ -1,6 +1,7 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,12 @@ namespace Simulation
             InitializeComponent();
             AndGate a = new AndGate();
             this.DataContext = a;
-        }
+
+            a.PropertyChanged += AndGatePropertyChange;
+			TopInput.Fill = Brushes.Red;
+			BottomInput.Fill = Brushes.Red;
+			OutputValue.Fill = Brushes.Red;
+		}
 
         /// <summary>
         /// 
@@ -55,6 +61,19 @@ namespace Simulation
                 dataContext.BottomInput = !dataContext.BottomInput;
             }
         }
-    }
+
+        private void AndGatePropertyChange(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "TopInput" || e.PropertyName == "BottomInput" || e.PropertyName == "OutputValue") UpdateColor();
+        }
+
+        private void UpdateColor()
+        {
+            var a = DataContext as AndGate;
+			TopInput.Fill = a.TopInput ? Brushes.Green : Brushes.Red;
+			BottomInput.Fill = a.BottomInput ? Brushes.Green : Brushes.Red;
+			OutputValue.Fill = a.OutputValue ? Brushes.Green : Brushes.Red;
+		}
+	}
 
 }
