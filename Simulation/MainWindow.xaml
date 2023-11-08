@@ -10,16 +10,24 @@
         <!-- Grid Defs -->
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Reset" Click="ResetButton_Click"/>
+            <Button Content="Delete Part"/>
+        </StackPanel>
         <!-- Clickable area of the grid -->
-        <Canvas Name="MainCanvas" Background="White" MouseDown="MainCanvas_MouseDown" Grid.Row="0">
+        <Canvas Name="MainCanvas" Background="White" MouseDown="MainCanvas_MouseDown" Grid.Row="1">
             
         </Canvas>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Content="AND Gate" Click="AndGateButton_Click"/>
             <Button Content="NOT Gate" Click="NotGateButton_Click"/>
             <Button Content="OR Gate" Click="OrGateButton_Click"/>

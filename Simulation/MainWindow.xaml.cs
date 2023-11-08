@@ -144,5 +144,11 @@ namespace Simulation
         {
             _currentSelection = SelectedPart.PowerSupply;
         }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            _currentSelection = SelectedPart.None;
+            MainCanvas.Children.Clear();
+        }
     }
 }
