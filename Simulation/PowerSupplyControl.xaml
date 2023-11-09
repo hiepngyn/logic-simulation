@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="50">
 
-    <UserControl.Resources>
-        <local:BooleanToBrushConverter x:Key="BooleanToBrushConverter"/>
-    </UserControl.Resources>
-
     <Canvas>
-        <Ellipse Fill="Aqua" Height="50" Width="50" ></Ellipse>
+        <Ellipse Name="InputValue" Width="50" Height="50"
+                 Fill="{Binding CurrentValue}"
+                 HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <TextBlock Canvas.Left="5" Canvas.Top="17" HorizontalAlignment="Left" VerticalAlignment="Center">POWER</TextBlock>
     </Canvas>
 </UserControl>
