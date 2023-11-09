@@ -25,6 +25,7 @@
             
         </Canvas>
 
+        
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Content="AND Gate" Click="AndGateButton_Click"/>
             <Button Content="NOT Gate" Click="NotGateButton_Click"/>
